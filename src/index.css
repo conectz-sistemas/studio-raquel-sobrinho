@@ -1,0 +1,12 @@
+/*@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; background-color: theme('colors.bg'); color: theme('colors.text'); font-family: theme('fontFamily.body'); }
+  h1, h2, h3, .font-display { font-family: theme('fontFamily.display'); }
+}*/
+/* src/index.css */
+@import "tailwindcss";
+/* nada além disso, por enquanto */
+
