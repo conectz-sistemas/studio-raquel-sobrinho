@@ -15,6 +15,16 @@ export default {
       },
       boxShadow: { soft: "0 10px 30px rgba(0,0,0,0.06)" },
       borderRadius: { xl2: "1rem" },
+      /* 👇 animação shimmer */
+      keyframes: {
+        shimmer: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.4s infinite",
+      },
     },
   },
   plugins: [],
