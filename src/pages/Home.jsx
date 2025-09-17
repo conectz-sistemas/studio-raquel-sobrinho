@@ -2,6 +2,7 @@ import Section from "../components/UI/Section.jsx";
 import { Reveal } from "../components/effects/Reveal.jsx";
 import Portfolio from "../components/Portfolio/Portfolio.jsx";
 import Testimonials from "../components/Testimonials/Testimonials.jsx";
+import FinalCTA from "../components/CTA/FinalCTA.jsx";
 
 function ServiceCard({ title, desc, delay = 0 }) {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
     <>
       {/* 1) SERVIÇOS — fundo branco */}
       <Section id="servicos" variant="white">
-        <Reveal as="h2" className="font-display text-3xl">Serviços</Reveal>
+        <Reveal as="h2" className="font-display text-3xl relative inline-block">Serviços</Reveal>
         <Reveal delay={0.08}>
           <p className="mt-2 max-w-2xl opacity-90">
             Penteados para eventos, cortes, finalizações e cuidados capilares.
@@ -58,7 +59,7 @@ export default function Home() {
       <Section id="sobre" variant="light">
         <Reveal>
           <div className="rounded-xl2 border border-accent/20 bg-white/75 p-8 shadow-soft backdrop-blur-sm">
-            <h2 className="font-display text-3xl">Sobre o Studio</h2>
+            <h2 className="font-display text-3xl relative inline-block">Sobre o Studio</h2>
             <p className="mt-3 max-w-3xl opacity-90">
               Atendimento personalizado, produtos premium e um espaço pensado para você se sentir única.
               Nossa missão é realçar sua beleza com técnica, sensibilidade estética e cuidado em cada detalhe.
@@ -69,7 +70,7 @@ export default function Home() {
 
       {/* 3) CONTATO — dourado translúcido */}
       <Section id="contato" variant="tinted">
-        <Reveal as="h2" className="font-display text-3xl">Contato</Reveal>
+        <Reveal as="h2" className="font-display text-3xl relative inline-block">Contato</Reveal>
         <Reveal delay={0.08}>
           <p className="mt-2 max-w-2xl opacity-90">
             Whatsapp, endereço e horários em breve.
@@ -87,6 +88,9 @@ export default function Home() {
           </div>
         </Reveal>
       </Section>
+
+      <FinalCTA />
+
     </>
   );
 }

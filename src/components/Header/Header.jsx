@@ -5,10 +5,12 @@ import useScrollSpy from "../../hooks/useScrollSpy.js";
 export default function Header() {
   const active = useScrollSpy(["servicos", "portfolio", "sobre", "contato"]);
 
-  const linkBase = "pb-1 transition-colors border-b-2 border-transparent hover:text-primary";
-  const linkActive = "text-primary border-accent";
+  const linkBase = "relative px-2 py-1 rounded-md transition-colors border-b-2 border-transparent";
 
-  const cls = (id) => `${linkBase} ${active === id ? linkActive : ""}`;
+  const cls = (id) =>
+    active === id 
+      ? `${linkBase} text-primary border-accent bg-accent/10 font-semibold`
+      : `${linkBase} hover:text-primary`;
 
   return (
     <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-sm border-b border-accent/20">
@@ -20,7 +22,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           <a href="#servicos" className={cls("servicos")}>Serviços</a>
           <a href="#portfolio" className={cls("portfolio")}>Portfólio</a>
           <a href="#sobre" className={cls("sobre")}>Sobre</a>

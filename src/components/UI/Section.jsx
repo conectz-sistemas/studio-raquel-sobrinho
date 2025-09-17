@@ -14,7 +14,7 @@ export default function Section({
   ...props
 }) {
   return (
-    <section id={id} className={`${variants[variant]} py-14 md:py-20 ${className}`} {...props}>
+    <section id={id} className={`${variants[variant]} py-14 md:py-20 scroll-mt-24 md:scroll-mt-28 ${className}`} {...props}>
       <div className={container ? "mx-auto max-w-6xl px-4" : ""}>{children}</div>
     </section>
   );
