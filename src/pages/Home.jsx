@@ -1,6 +1,7 @@
 import Section from "../components/UI/Section.jsx";
 import { Reveal } from "../components/effects/Reveal.jsx";
-import Portfolio from "../components/Portfolio/Portfolio.jsx"; 
+import Portfolio from "../components/Portfolio/Portfolio.jsx";
+import Testimonials from "../components/Testimonials/Testimonials.jsx";
 
 function ServiceCard({ title, desc, delay = 0 }) {
   return (
@@ -50,6 +51,8 @@ export default function Home() {
       
       {/* NOVO: Portfólio */}
       <Portfolio />
+
+      <Testimonials />
 
       {/* 2) SOBRE — bloco destacado */}
       <Section id="sobre" variant="light">
