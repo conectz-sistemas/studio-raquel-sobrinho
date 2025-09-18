@@ -21,9 +21,16 @@ export default {
           "0%": { transform: "translateX(-100%)" },
           "100%": { transform: "translateX(100%)" },
         },
+        beam: {
+          "0%":   { transform: "translateX(-120%)", opacity: "0" },
+          "10%":  { opacity: "1" },
+          "90%":  { opacity: "1" },
+          "100%": { transform: "translateX(120%)", opacity: "0" },
+        },
       },
       animation: {
         shimmer: "shimmer 1.4s infinite",
+        beam: "beam 900ms ease-out",
       },
     },
   },
