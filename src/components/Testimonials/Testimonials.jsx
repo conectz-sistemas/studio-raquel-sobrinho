@@ -9,21 +9,21 @@ const testimonials = [
       "Meu penteado de noiva ficou impecável do começo ao fim. Atendimento carinhoso e extremamente profissional.",
     author: "Ana Luiza",
     role: "Noiva • Casamento Campo Belo",
-    avatar: null, // opcional: "/src/assets/avatars/ana.webp"
+    avatar: "/src/assets/avatars/a1.webp",
   },
   {
     quote:
       "Fiz ondas glam para um evento. Resultado elegante, com brilho e zero frizz nas fotos.",
-    author: "Marcela Ribeiro",
+    author: "Mara Ribeiro",
     role: "Convidada • Gala Beneficente",
-    avatar: null,
+    avatar: "/src/assets/avatars/a2.webp",
   },
   {
     quote:
       "Consultoria certeira para o meu tipo de cabelo. Saí me sentindo confiante e leve.",
     author: "Jéssica Moraes",
     role: "Cliente • Finalização natural",
-    avatar: null,
+    avatar: "/src/assets/avatars/a3.webp",
   },
 ];
 
