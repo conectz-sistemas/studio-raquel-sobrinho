@@ -3,6 +3,7 @@ import { Reveal } from "../components/effects/Reveal.jsx";
 import Portfolio from "../components/Portfolio/Portfolio.jsx";
 import Testimonials from "../components/Testimonials/Testimonials.jsx";
 import FinalCTA from "../components/CTA/FinalCTA.jsx";
+import Contato from "../components/Contato/Contato.jsx";
 
 function ServiceCard({ title, desc, delay = 0 }) {
   return (
@@ -68,26 +69,8 @@ export default function Home() {
         </Reveal>
       </Section>
 
-      {/* 3) CONTATO — dourado translúcido */}
-      <Section id="contato" variant="tinted">
-        <Reveal as="h2" className="font-display text-3xl relative inline-block">Contato</Reveal>
-        <Reveal delay={0.08}>
-          <p className="mt-2 max-w-2xl opacity-90">
-            Whatsapp, endereço e horários em breve.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.16}>
-          <div className="mt-6">
-            <a
-              href="https://wa.me/5599999999999?text=Olá%20quero%20agendar%20um%20horário%20no%20Studio%20Raquel%20Sobrinho"
-              className="inline-flex items-center justify-center rounded-xl2 bg-primary px-5 py-3 font-semibold text-white shadow-soft hover:bg-primary/90"
-            >
-              Chamar no WhatsApp
-            </a>
-          </div>
-        </Reveal>
-      </Section>
+      {/*  CONTATO  */}
+      <Contato />
 
       <FinalCTA />
 

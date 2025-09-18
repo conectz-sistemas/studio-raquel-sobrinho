@@ -1,12 +1,14 @@
-export default function CTAButton({ children, className = "", ...props }) {
+export default function CTAButton({ children, href, className = "", ...props }) {
   return (
-    <button
-      className={`inline-flex items-center justify-center rounded-xl2 px-5 py-3 font-semibold
-                  bg-primary text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg
-                  focus:outline-none focus:ring-2 focus:ring-accent/50 ${className}`}
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center justify-center rounded-xl2 px-5 py-2 font-semibold transition-colors shadow-soft ${className}`}
       {...props}
     >
       {children}
-    </button>
+    </a>
   );
 }
+

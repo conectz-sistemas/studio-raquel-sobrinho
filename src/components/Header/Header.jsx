@@ -12,6 +12,8 @@ export default function Header() {
       ? `${linkBase} text-primary border-accent bg-accent/10 font-semibold`
       : `${linkBase} hover:text-primary`;
 
+  const whatsapp = "https://wa.me/556198321749?text=Olá! Gostaria de agendar um horário no Studio Raquel Sobrinho.";
+
   return (
     <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-sm border-b border-accent/20">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
@@ -29,10 +31,12 @@ export default function Header() {
           <a href="#contato" className={cls("contato")}>Contato</a>
         </nav>
 
-        <CTAButton className="ml-4 bg-accent text-bg hover:bg-accent/90">
+        <CTAButton href={whatsapp}
+        className="ml-4 bg-accent text-bg hover:bg-accent/90">
           Agendar
         </CTAButton>
       </div>
     </header>
   );
 }
+
