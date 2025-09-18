@@ -61,7 +61,7 @@ export default function Contato() {
           <Phone className="text-primary" size={22} />
           <div>
             <div className="font-semibold text-primary">WhatsApp</div>
-            <div className="text-sm text-text/80">+55 61 9832-1749</div>
+            <div className="text-sm text-text/80">+55 61 99832-1749</div>
           </div>
         </motion.a>
 
@@ -96,7 +96,7 @@ export default function Contato() {
           <div>
             <div className="font-semibold text-primary">Endereço</div>
             <div className="text-sm text-text/80">
-              Parque Estrela D'alva VI, Quadra 501, Lote 18<br />
+              Parque Estrela D'alva VI, Q 501, Lote 18<br />
               Novo Gama (GO) — 72860-464
             </div>
           </div>

@@ -2,19 +2,21 @@ import { motion } from "framer-motion";
 
 /**
  * SectionTitle
- * - children: texto do título
- * - className: classes adicionais
- * - underlineWidth: largura final do sublinhado (px)
+ * - gradient: quando true, aplica leve gradiente marsala→dourado no texto (moderno e sutil)
+ * - underlineWidth: largura final do sublinhado
  */
 export default function SectionTitle({
   children,
   className = "",
   underlineWidth = 60,
+  gradient = false,
 }) {
   return (
     <div className={`relative inline-block ${className}`}>
       <motion.h2
-        className="font-display text-3xl"
+        className={`font-display text-3xl ${
+          gradient ? "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent" : ""
+        }`}
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -23,7 +25,7 @@ export default function SectionTitle({
         {children}
       </motion.h2>
 
-      {/* sublinhado dourado que cresce da esquerda para a direita */}
+      {/* sublinhado dourado animado */}
       <motion.div
         className="absolute -bottom-2 left-0 h-[2px] bg-accent"
         initial={{ width: 0 }}

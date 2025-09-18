@@ -27,7 +27,10 @@ export default function Hero() {
 
         <Reveal delay={0.25}>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CTAButton className="bg-accent text-bg hover:bg-accent/90">
+            <CTAButton 
+              href="https://wa.me/556198321749?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Raquel%20Sobrinho."
+              className="bg-accent text-bg hover:bg-accent/90"
+            >
               Agendar horário
             </CTAButton>
             <a
