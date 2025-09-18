@@ -1,12 +1,13 @@
 import CTAButton from "./UI/CTAButton.jsx";
 import ParallaxSection from "./effects/ParallaxSection.jsx";
 import { Reveal } from "./effects/Reveal.jsx";
-import heroImg from "../assets/images/imgTest1.jpg";
+import heroImg from "../assets/images/hero.jpg";
+import heroAvif from "../assets/images/hero.avif?url";
 
 export default function Hero() {
   return (
     <ParallaxSection
-      backgroundUrl={heroImg}
+      backgroundUrl={heroAvif}
       height="88vh"
       overlay="linear-gradient(180deg, rgba(138,21,56,0.60) 0%, rgba(15,15,15,0.55) 100%)"
       strength={0.38}

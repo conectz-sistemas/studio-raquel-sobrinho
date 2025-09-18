@@ -2,9 +2,35 @@ import { useState, useMemo } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Section from "../UI/Section.jsx";
 import Lightbox from "../Lightbox/Lightbox.jsx";
+import SmartImage from "../media/SmartImage.jsx";
 
-// Card com parallax no hover
-function ParallaxCard({ src, title, tag, onOpen }) {
+/* Importa grupos de formatos (se não tiver webp/avif, pode omitir) */
+import p1jpg from "../../assets/portfolio/p1.jpg";
+import p1webp from "../../assets/portfolio/p1.webp?url";
+import p1avif from "../../assets/portfolio/p1.avif?url";
+
+import p2jpg from "../../assets/portfolio/p2.jpg";
+import p2webp from "../../assets/portfolio/p2.webp?url";
+import p2avif from "../../assets/portfolio/p2.avif?url";
+
+import p3jpg from "../../assets/portfolio/p3.jpg";
+import p3webp from "../../assets/portfolio/p3.webp?url";
+import p3avif from "../../assets/portfolio/p3.avif?url";
+
+import p4jpg from "../../assets/portfolio/p2.jpg";
+import p4webp from "../../assets/portfolio/p2.webp?url";
+import p4avif from "../../assets/portfolio/p2.avif?url";
+
+import p5jpg from "../../assets/portfolio/p3.jpg";
+import p5webp from "../../assets/portfolio/p3.webp?url";
+import p5avif from "../../assets/portfolio/p3.avif?url";
+
+import p6jpg from "../../assets/portfolio/p1.jpg";
+import p6webp from "../../assets/portfolio/p1.webp?url";
+import p6avif from "../../assets/portfolio/p1.avif?url";
+
+/* Card com parallax no hover + SmartImage */
+function ParallaxCard({ sources, title, tag, onOpen }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-40, 40], [6, -6]);
@@ -17,7 +43,6 @@ function ParallaxCard({ src, title, tag, onOpen }) {
     x.set(((px - rect.width / 2) / (rect.width / 2)) * 40);
     y.set(((py - rect.height / 2) / (rect.height / 2)) * 40);
   };
-
   const handleLeave = () => { x.set(0); y.set(0); };
 
   return (
@@ -27,18 +52,21 @@ function ParallaxCard({ src, title, tag, onOpen }) {
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ rotateX, rotateY }}
-      className="group relative aspect-[4/5] w-full select-none rounded-xl2 border border-accent/20 bg-white shadow-soft will-change-transform"
+      className="group relative w-full select-none rounded-xl2 border border-accent/20 bg-white shadow-soft will-change-transform"
       transition={{ type: "spring", stiffness: 120, damping: 12 }}
     >
-      <motion.img
-        src={src}
+      <SmartImage
+        avif={sources.avif}
+        webp={sources.webp}
+        jpg={sources.jpg}
         alt={title}
-        className="h-full w-full rounded-xl2 object-cover"
-        whileHover={{ scale: 1.03 }}
-        transition={{ type: "spring", stiffness: 160, damping: 18 }}
+        aspect="aspect-[4/5]"
       />
+
+      {/* Overlay marsala/dourado no hover */}
       <div className="pointer-events-none absolute inset-0 rounded-xl2 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
            style={{ background: "linear-gradient(180deg, rgba(138,21,56,0.35) 0%, rgba(207,166,107,0.25) 100%)" }} />
+      {/* Legenda */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
         <div className="rounded-xl2 border border-white/70 bg-white/80 px-3 py-2 text-sm backdrop-blur">
           <div className="font-display text-primary leading-none">{title}</div>
@@ -51,12 +79,12 @@ function ParallaxCard({ src, title, tag, onOpen }) {
 
 export default function Portfolio() {
   const items = useMemo(() => ([
-    { src: "/src/assets/portfolio/p1.jpg", title: "Noiva Clássico", tag: "Coque baixo • Longa duração" },
-    { src: "/src/assets/portfolio/p2.jpg", title: "Glam Ondas", tag: "Ondas abertas • Glossy" },
-    { src: "/src/assets/portfolio/p3.jpg", title: "Madrinha Elegante", tag: "Semi-preso • Volumetria" },
-    { src: "/src/assets/portfolio/p2.jpg", title: "Editorial", tag: "Textura • Styling" },
-    { src: "/src/assets/portfolio/p3.jpg", title: "Trança Festiva", tag: "Fios polidos • Detalhe joia" },
-    { src: "/src/assets/portfolio/p1.jpg", title: "Dia a Dia", tag: "Finalização natural • Brilho" },
+    { title: "Noiva Clássico",    tag: "Coque baixo • Longa duração", sources: { avif: p1avif, webp: p1webp, jpg: p1jpg } },
+    { title: "Glam Ondas",        tag: "Ondas abertas • Glossy",      sources: { avif: p2avif, webp: p2webp, jpg: p2jpg } },
+    { title: "Madrinha Elegante", tag: "Semi-preso • Volumetria",     sources: { avif: p3avif, webp: p3webp, jpg: p3jpg } },
+    { title: "Editorial",         tag: "Textura • Styling",           sources: { avif: p4avif, webp: p4webp, jpg: p4jpg } },
+    { title: "Trança Festiva",    tag: "Fios polidos • Detalhe joia", sources: { avif: p5avif, webp: p5webp, jpg: p5jpg } },
+    { title: "Dia a Dia",         tag: "Finalização natural • Brilho",sources: { avif: p6avif, webp: p6webp, jpg: p6jpg } },
   ]), []);
 
   const [open, setOpen] = useState(false);
@@ -85,9 +113,10 @@ export default function Portfolio() {
         </div>
       </Section>
 
+      {/* Lightbox usa as versões JPG/WebP/AVIF também */}
       <Lightbox
         isOpen={open}
-        items={items}
+        items={items.map(it => ({ src: it.sources.jpg || it.sources.webp || it.sources.avif, title: it.title, tag: it.tag }))}
         index={idx}
         onClose={close}
         onPrev={prev}
