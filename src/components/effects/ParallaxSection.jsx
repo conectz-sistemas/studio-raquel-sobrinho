@@ -33,7 +33,7 @@ export default function ParallaxSection({
   const yBg = useTransform(scrollYProgress, [0, 1], ["-10%", `${s * 30}%`]);
 
   return (
-    <section ref={ref} className="relative isolate w-full overflow-hidden">
+    <section id="hero" ref={ref} className="relative isolate w-full overflow-hidden">
       {/* Fundo com parallax */}
       <motion.div
         aria-hidden="true"
