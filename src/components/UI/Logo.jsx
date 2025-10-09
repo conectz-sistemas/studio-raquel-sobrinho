@@ -3,8 +3,8 @@ export default function Logo({ size = 28 }) {
     <div
       className="font-display text-accent"
       style={{ fontSize: size, lineHeight: 1, fontWeight: 700 }}
-      aria-label="Studio Raquel Sobrinho"
-      title="Studio Raquel Sobrinho"
+      aria-label="Instituto de Beleza Raquel Sobrinho"
+      title="Instituto de Beleza Raquel Sobrinho"
     >
       RS
     </div>
